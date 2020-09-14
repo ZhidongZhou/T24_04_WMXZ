@@ -1,14 +1,36 @@
-<!DOCTYPE html>
-<html>
-	<head>
-		<title>Redirecting...</title>
-		<meta http-equiv="refresh" content="0;url=https://zhidongzhou.github.io/T24_04_WMXZ/wp-login.php?redirect_to=http%3A%2F%2Flocalhost%3A8888%2Fwp-admin%2Fprivacy-policy-guide.php&reauth=1">
-	</head>
-	<body>
-		<script type="text/javascript">
-			window.location = "https://zhidongzhou.github.io/T24_04_WMXZ/wp-login.php?redirect_to=http%3A%2F%2Flocalhost%3A8888%2Fwp-admin%2Fprivacy-policy-guide.php&reauth=1";
-		</script>
+<?php
+/**
+ * Privacy Policy Guide Screen.
+ *
+ * @package WordPress
+ * @subpackage Administration
+ */
 
-		<p>You are being redirected to <a href="https://zhidongzhou.github.io/T24_04_WMXZ/wp-login.php?redirect_to=http%3A%2F%2Flocalhost%3A8888%2Fwp-admin%2Fprivacy-policy-guide.php&reauth=1">https://zhidongzhou.github.io/T24_04_WMXZ/wp-login.php?redirect_to=http%3A%2F%2Flocalhost%3A8888%2Fwp-admin%2Fprivacy-policy-guide.php&reauth=1</a></p>
-	</body>
-</html>
+/** WordPress Administration Bootstrap */
+require_once __DIR__ . '/admin.php';
+
+if ( ! current_user_can( 'manage_privacy_options' ) ) {
+	wp_die( __( 'Sorry, you are not allowed to manage privacy on this site.' ) );
+}
+
+if ( ! class_exists( 'WP_Privacy_Policy_Content' ) ) {
+	include_once ABSPATH . 'wp-admin/includes/class-wp-privacy-policy-content.php';
+}
+
+$title = __( 'Privacy Policy Guide' );
+
+wp_enqueue_script( 'privacy-tools' );
+
+require_once ABSPATH . 'wp-admin/admin-header.php';
+
+?>
+<div class="wrap">
+	<h1><?php echo esc_html( $title ); ?></h1>
+
+	<div class="wp-privacy-policy-guide">
+		<?php WP_Privacy_Policy_Content::privacy_policy_guide(); ?>
+	</div>
+</div>
+<?php
+
+require_once ABSPATH . 'wp-admin/admin-footer.php';

@@ -646,7 +646,7 @@ p.search-box {
 
 input[type="text"].ui-autocomplete-loading,
 input[type="email"].ui-autocomplete-loading {
-	background-image: url(https://zhidongzhou.github.io/T24_04_WMXZ/wp-admin/images/loading.gif);
+	background-image: url(../images/loading.gif);
 	background-repeat: no-repeat;
 	background-position: left center;
 	visibility: visible;
