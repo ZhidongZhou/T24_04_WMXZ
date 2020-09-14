@@ -1,21 +1,19 @@
 # Group Assignment 2B 
 
 
+#### Team 24_04 (Agile)
 
-**SDLC Model**: Agile
 
-**Team**: T24_04
-
-**Member**
-
-- Zhidong Zhou | email: zhidong.zhou@student.unimelb.edu.au
-- Jinglu Huang Jeremy | email: jinglu.huang@student.unimelb.edu.au
-- Mingyao Xiao  |  email: mingyaox1@student.unimelb.edu.au
-- Ruiying Wang | email: ruiywang@student.unimelb.edu.au
+| MEMBER | EMAIL |
+| --- | --- |
+| Zhidong Zhou | zhidong.zhou@student.unimelb.edu.au |
+| Jinglu Huang Jeremy | jinglu.huang@student.unimelb.edu.au |
+| Mingyao Xiao  |  mingyaox1@student.unimelb.edu.au |
+| Ruiying Wang | ruiywang@student.unimelb.edu.au |
 
 
 
-KEY Requirement: 
+#### KEY Requirement 
 
 1. Customer Registration: requires necessary customer information which includes:  
     1. Name of Client  
