@@ -2267,7 +2267,7 @@ h1.nav-tab-wrapper, /* Back-compat for pre-4.4 */
 ------------------------------------------------------------------------------*/
 
 .spinner {
-	background: url(http://zhidongzhou.github.io/T24_04_WMXZ/wp-admin/images/spinner.gif) no-repeat;
+	background: url(https://zhidongzhou.github.io/T24_04_WMXZ/wp-admin/images/spinner.gif) no-repeat;
 	background-size: 20px 20px;
 	display: inline-block;
 	visibility: hidden;
@@ -2481,11 +2481,11 @@ div.star-holder {
 	position: relative;
 	height: 17px;
 	width: 100px;
-	background: url(http://zhidongzhou.github.io/T24_04_WMXZ/wp-admin/images/stars.png?ver=20121108) repeat-x bottom left;
+	background: url(https://zhidongzhou.github.io/T24_04_WMXZ/wp-admin/images/stars.png?ver=20121108) repeat-x bottom left;
 }
 
 div.star-holder .star-rating {
-	background: url(http://zhidongzhou.github.io/T24_04_WMXZ/wp-admin/images/stars.png?ver=20121108) repeat-x top left;
+	background: url(https://zhidongzhou.github.io/T24_04_WMXZ/wp-admin/images/stars.png?ver=20121108) repeat-x top left;
 	height: 17px;
 	float: left;
 }
@@ -2971,7 +2971,7 @@ div.action-links {
 	top: 50%;
 	z-index: -1;
 	margin: -10px 0 0 -10px;
-	background: #fcfcfc url(http://zhidongzhou.github.io/T24_04_WMXZ/wp-admin/images/spinner.gif) no-repeat center;
+	background: #fcfcfc url(https://zhidongzhou.github.io/T24_04_WMXZ/wp-admin/images/spinner.gif) no-repeat center;
 	background-size: 20px 20px;
 	transform: translateZ(0);
 }
@@ -2981,7 +2981,7 @@ div.action-links {
 	(min-resolution: 120dpi) {
 
 	#TB_window.plugin-details-modal.thickbox-loading:before {
-		background-image: url(http://zhidongzhou.github.io/T24_04_WMXZ/wp-admin/images/spinner-2x.gif);
+		background-image: url(https://zhidongzhou.github.io/T24_04_WMXZ/wp-admin/images/spinner-2x.gif);
 	}
 }
 
@@ -3720,12 +3720,12 @@ img {
 	/* Back-compat for pre-3.8 */
 	div.star-holder,
 	div.star-holder .star-rating {
-		background: url(http://zhidongzhou.github.io/T24_04_WMXZ/wp-admin/images/stars-2x.png?ver=20121108) repeat-x bottom left;
+		background: url(https://zhidongzhou.github.io/T24_04_WMXZ/wp-admin/images/stars-2x.png?ver=20121108) repeat-x bottom left;
 		background-size: 21px 37px;
 	}
 
 	.spinner {
-		background-image: url(http://zhidongzhou.github.io/T24_04_WMXZ/wp-admin/images/spinner-2x.gif);
+		background-image: url(https://zhidongzhou.github.io/T24_04_WMXZ/wp-admin/images/spinner-2x.gif);
 	}
 
 }

@@ -287,7 +287,7 @@
 
 /* higher specificity */
 .wp-core-ui .media-modal-icon {
-	background-image: url(http://zhidongzhou.github.io/T24_04_WMXZ/wp-includes/images/uploader-icons.png);
+	background-image: url(https://zhidongzhou.github.io/T24_04_WMXZ/wp-includes/images/uploader-icons.png);
 	background-repeat: no-repeat;
 }
 
@@ -1690,7 +1690,7 @@
  * Spinner
  */
 .media-frame .spinner {
-	background: url(http://zhidongzhou.github.io/T24_04_WMXZ/wp-includes/images/spinner.gif) no-repeat;
+	background: url(https://zhidongzhou.github.io/T24_04_WMXZ/wp-includes/images/spinner.gif) no-repeat;
 	background-size: 20px 20px;
 	float: left;
 	display: inline-block;
@@ -2837,12 +2837,12 @@
   (min-resolution: 120dpi) {
 
 	.wp-core-ui .media-modal-icon {
-		background-image: url(http://zhidongzhou.github.io/T24_04_WMXZ/wp-includes/images/uploader-icons-2x.png);
+		background-image: url(https://zhidongzhou.github.io/T24_04_WMXZ/wp-includes/images/uploader-icons-2x.png);
 		background-size: 134px 15px;
 	}
 
 	.media-frame .spinner {
-		background-image: url(http://zhidongzhou.github.io/T24_04_WMXZ/wp-includes/images/spinner-2x.gif);
+		background-image: url(https://zhidongzhou.github.io/T24_04_WMXZ/wp-includes/images/spinner-2x.gif);
 	}
 }
 
