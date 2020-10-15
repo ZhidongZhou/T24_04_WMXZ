@@ -1,0 +1,189 @@
+/* Mobile Portrait View */
+
+@media screen and (max-width:479px) {
+
+	*{box-sizing:border-box;}
+	#slider .desc p {
+	    display: none;
+	}
+	#slider .nivo-caption{
+		width: 100%;
+	}
+	.appointbtn {
+    	text-align: center;
+	}
+	.box-image.animated.fadeInDown {
+	    margin-top: 15px;
+	}
+	#header { width:100%; padding:0 20px; position:inherit !important;}
+	.logo {text-align:center;}	
+	.comnt { width:40%;}
+	.copyright-wrapper .inner{ width:100%;}
+	.copyright{ float:none; text-align:center; margin-bottom:10px;}
+	.footer, .copyright { width:auto; padding:0 20px;}
+	.copyright-txt, .design-by { text-align:center; float:none;}
+
+/* ------ Extra ------ */
+	.one_half{ width:100%;}
+	.toggle{display:block;}
+	.toggle a{width:100%; color:#ffffff; background:url(../images/mobile_nav_right.png) no-repeat right center #000000; padding:10px 10px; margin-top:20px; font-size:16px;}
+	.toggle a:hover{ color:#ffffff !important;}
+	.toggle a.active{color:#ffffff;}
+	.searchlink { display:none;}
+	.main-nav{display:none;}
+	.main-nav{float:none; margin:0; position:relative; overflow-x:hidden; }
+	.main-nav ul{background:#000000; color:#ffffff; width:100%; float:none !important; margin-left:0;}
+	.main-nav ul li{border-top:1px #303030 solid; display:block; float:none; text-align:left;}
+	.main-nav ul li a{padding:5px 10px; display:block; color:#ffffff; font-size:13px;}
+	.main-nav ul li a:hover{color:#ffffff;}
+	.main-nav ul li ul, .nav ul li ul ul{ display:block !important;}
+	.main-nav ul li ul li a:before{content:"\00BB \00a0";}
+	.main-nav ul li ul li a{padding-left:20px !important;}
+	.main-nav ul li ul li ul li a{padding-left:30px !important;}
+	#header{ width:100%; padding:15px 0;}
+	#sidebarr {margin-right: 0px;}
+	
+	section{ padding:40px 0;}
+
+/* --------- Pages ------- */
+	.content-area{ width:auto;}
+	h2.entry-title { font-size:20px;}
+	#sidebar{ width:auto;padding:0; float:none;margin:10px;}
+	.content-area{padding: 0px !important;}	
+	a.contact{ margin-top:5px !important; font-size:12px !important;}
+	.nivo-directionNav a{ top:38% !important;}
+	#contactform_main .leftdiv, #contactform_main .rightdiv{ width:auto; float:none;}
+
+}
+
+/* Mobile Landscape View */
+
+@media screen and (max-width:719px) and (min-width:480px) { 
+	*{box-sizing:border-box;}
+	#slider .top-bar a{ font-size:16px; padding:8px 10px; margin-top:20px;}
+	.nivo-caption { left:10% !important;}
+	.arrow-down { display:none;}
+	.container { width:auto; padding:0 20px;}
+	#header { padding:0 20px; position:inherit !important;text-align: center;}
+	.comnt { width:30%;}
+	.alignleft, img.alignleft { float:none; display:block;}
+	.sicons { width:auto;}
+	.footer, .copyright { width:auto; padding:0 20px;}
+	.copyright-txt, .design-by { text-align:center; float:none;}
+	.searchlink { display:none;}
+
+/* ------ Extra ------ */
+	.toggle{display:block;}
+	.toggle a{width:100%; color:#ffffff; background:url(../images/mobile_nav_right.png) no-repeat right center #000000; padding:10px 10px; margin-top:20px; font-size:16px;}
+	.toggle a:hover { color:#ffffff; text-decoration:none;}
+	.toggle a.active{color:#ffffff; text-decoration:none;}
+	.main-nav{display:none;}
+	#header .main-nav{float:none; margin:0; position:relative; overflow-x:hidden; }
+	#header .main-nav ul{background:#000000; color:#ffffff; width:100%; float:none !important; margin-left:0; font-size:15px !important;}
+	#header .main-nav ul li{border-top:1px #303030 solid; display:block; float:none; text-align:left;}
+	.main-nav ul li a{padding:5px 10px; display:block; color:#ffffff;}
+	.main-nav ul li a:hover{color:#ffffff;}
+	.main-nav ul li ul li a:before{content:"\00BB \00a0";}
+	.main-nav ul li ul li a{padding-left:20px !important;}
+	.main-nav ul li ul li ul li a{padding-left:30px !important;}
+	#prevslide, #nextslide{ top:0;}
+	.copyright-wrapper .inner{ width:100%;}
+	.foot-top { width:auto; text-align:center;}
+	.copyright{ float:none; text-align:center; margin-bottom:10px;}
+	section{ padding:40px 0;}
+
+
+/* --------- Pages ------- */
+	.content-area{ width:auto; margin:0 20px; padding:50px 0;}
+	a.contact{ margin-top:5px !important; font-size:12px !important;}
+	.nivo-directionNav a{ top:39% !important;}
+	h2.section-title{ margin-bottom:5px;}
+}
+
+
+@media screen and (max-width:899px) and (min-width:320px) { 
+
+	h2.section-title { line-height:48px; font-size:25px !important; text-align:center;}
+	.section-subtitle { line-height:25px; text-align:center; padding-bottom:0; font-size:20px !important; margin-bottom:30px;}
+	.photobooth .filter-gallery ul li{ margin-bottom:10px;}
+	.cat_comments{ height:auto;}
+	#contact .column-2, #contact .column-2.last_column{ width:100%; float:none; margin:0 0 20px 0;}
+	.toggle a { color:#ffffff;}
+	.toggle a:hover { color:#ffffff; text-decoration:none;}
+	.toggle a.active{color:#ffffff; text-decoration:none;}
+	a.select { left:32%;}
+	.searchlink { display:none;}
+	#slider .nivo-caption{
+		top: 49%;
+	}
+	.main-nav ul li a{
+		padding: 10px;
+	}
+}
+
+/* Tablet View */
+@media screen and (max-width:767px) and (min-width:720px) {
+.toggle{display:block;}
+	.toggle a{width:100%; color:#ffffff; background:url(../images/mobile_nav_right.png) no-repeat right center #000000; padding:10px 10px; margin-top:20px; font-size:16px;}
+	.toggle a:hover { color:#ffffff; text-decoration:none;}
+	.toggle a.active{color:#ffffff; text-decoration:none;}
+	.main-nav{display:none;}
+	.searchlink { top:-37px; left:10px;}
+	#header .main-nav{float:none; margin:0; position:relative; overflow-x:hidden; }
+	#header .main-nav ul{background:#000000; color:#ffffff; width:100%; float:none; margin-left:0; font-size:15px !important; }
+	#header .main-nav ul li{border-top:1px #303030 solid; display:block; float:none; text-align:left;}
+	.main-nav ul li a{padding:5px 5px; display:block; color:#ffffff;}
+	.main-nav ul li a:hover{color:#ffffff; padding-left:5px; padding-right:5px;}
+	.main-nav ul li ul li a:before{content:"\00BB \00a0";}
+	.main-nav ul li ul li a{padding-left:20px !important;}
+	.main-nav ul li ul li ul li a{padding-left:30px !important;}
+	.nivo-caption { left:15% !important;}
+}
+@media screen and (max-width:999px) and (min-width:720px) { 
+	*{box-sizing:border-box;}
+	#header { padding:0 20px;text-align: center;}
+	.sicons { width:94%; margin:auto;}
+	.footer, .copyright { width:auto; padding:0 20px;}
+	.cat_comments .cat, .cat_comments .comnt{ font-size:10px;}
+	footer#colophon {margin-bottom: 56px;}
+
+
+/* ------ Extra ------ */
+	
+	
+/* --------- Pages ------- */
+	.post-22-page type-page status-publish-hentry #sidebar{ margin:-4em 0px;}
+	a.read-more, .common_btn{ margin-top:2px;}
+	a.contact{ margin-top:15px !important; font-size:18px !important;}
+	.nivo-directionNav a{ top:42% !important;}
+	a.select {font-size: 15px; left: 20%;}
+	.comnt { width:30%;}
+	.bx-controls-direction{ display:none;}
+	.copyright-wrapper .inner{ width:95%; margin: auto;}
+	.woocommerce-page #sidebar {margin: 1em 0 !important; }
+	article#post-22 #sidebar {margin: -2em 0 !important; }
+	article#post-12 #sidebar {margin: -29em 0; }
+	.search-results #sidebar {margin: 0em 0; }
+	footer#colophon {margin-bottom: 22em;}
+	.copyright-wrapper .inner{ width:100% !important;}
+	.content-area{ width:100% !important;}
+}
+
+@media screen and (min-width: 1000px) {
+	#header .main-nav{ width:100%;}
+	#header .main-nav ul li ul li{display:block; position:relative; float:none;}
+	#header .main-nav ul li ul li a{color:#ffffff; display:block; padding-top:10px; padding-bottom:10px; border-bottom:1px #313131 solid; padding-right:0px !important; padding-left:10px;}
+	.toggle a { text-decoration:none;}
+	.toggle a:hover { color:#ffffff; text-decoration:none;}
+	.toggle a.active{color:#ffffff; text-decoration:none;}
+	a.select {font-size: 15px; left: 54px;}
+	.comnt { width:25%;}
+	.copyright ul li { font-size:11px !important;}
+	.foot-post-content p { line-height:normal;}
+}
+
+@media screen and (min-width:1000px) and (max-width:1159px){
+	.copyright-wrapper .inner{ width:100%;}
+	.cat_comments .cat{ width:48%;}
+	.content-area{ width:100%;}
+}

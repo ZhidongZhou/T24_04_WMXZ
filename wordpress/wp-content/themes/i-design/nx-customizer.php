@@ -1,0 +1,1279 @@
+<?php
+
+function idesign_customizer_config() {
+	
+
+    $url  = get_stylesheet_directory_uri() . '/inc/kirki/';
+	
+    /**
+     * If you need to include Kirki in your theme,
+     * then you may want to consider adding the translations here
+     * using your textdomain.
+     * 
+     * If you're using Kirki as a plugin then you can remove these.
+     */
+
+    $strings = array(
+        'background-color' => __( 'Background Color', 'i-design' ),
+        'background-image' => __( 'Background Image', 'i-design' ),
+        'no-repeat' => __( 'No Repeat', 'i-design' ),
+        'repeat-all' => __( 'Repeat All', 'i-design' ),
+        'repeat-x' => __( 'Repeat Horizontally', 'i-design' ),
+        'repeat-y' => __( 'Repeat Vertically', 'i-design' ),
+        'inherit' => __( 'Inherit', 'i-design' ),
+        'background-repeat' => __( 'Background Repeat', 'i-design' ),
+        'cover' => __( 'Cover', 'i-design' ),
+        'contain' => __( 'Contain', 'i-design' ),
+        'background-size' => __( 'Background Size', 'i-design' ),
+        'fixed' => __( 'Fixed', 'i-design' ),
+        'scroll' => __( 'Scroll', 'i-design' ),
+        'background-attachment' => __( 'Background Attachment', 'i-design' ),
+        'left-top' => __( 'Left Top', 'i-design' ),
+        'left-center' => __( 'Left Center', 'i-design' ),
+        'left-bottom' => __( 'Left Bottom', 'i-design' ),
+        'right-top' => __( 'Right Top', 'i-design' ),
+        'right-center' => __( 'Right Center', 'i-design' ),
+        'right-bottom' => __( 'Right Bottom', 'i-design' ),
+        'center-top' => __( 'Center Top', 'i-design' ),
+        'center-center' => __( 'Center Center', 'i-design' ),
+        'center-bottom' => __( 'Center Bottom', 'i-design' ),
+        'background-position' => __( 'Background Position', 'i-design' ),
+        'background-opacity' => __( 'Background Opacity', 'i-design' ),
+        'ON' => __( 'ON', 'i-design' ),
+        'OFF' => __( 'OFF', 'i-design' ),
+        'all' => __( 'All', 'i-design' ),
+        'cyrillic' => __( 'Cyrillic', 'i-design' ),
+        'cyrillic-ext' => __( 'Cyrillic Extended', 'i-design' ),
+        'devanagari' => __( 'Devanagari', 'i-design' ),
+        'greek' => __( 'Greek', 'i-design' ),
+        'greek-ext' => __( 'Greek Extended', 'i-design' ),
+        'khmer' => __( 'Khmer', 'i-design' ),
+        'latin' => __( 'Latin', 'i-design' ),
+        'latin-ext' => __( 'Latin Extended', 'i-design' ),
+        'vietnamese' => __( 'Vietnamese', 'i-design' ),
+        'serif' => _x( 'Serif', 'font style', 'i-design' ),
+        'sans-serif' => _x( 'Sans Serif', 'font style', 'i-design' ),
+        'monospace' => _x( 'Monospace', 'font style', 'i-design' ),
+    );	
+
+	$args = array(
+  
+        // Change the logo image. (URL) Point this to the path of the logo file in your theme directory
+                // The developer recommends an image size of about 250 x 250
+        //'logo_image'   => get_template_directory_uri() . '/images/logo.png',
+  
+        // The color of active menu items, help bullets etc.
+        'color_active' => '#95c837',
+		
+		// Color used on slider controls and image selects
+		//'color_accent' => '#dd9933',
+		
+		// The generic background color
+		//'color_back' => '#f7f7f7',
+	
+        // Color used for secondary elements and desable/inactive controls
+        'color_light'  => '#e7e7e7',
+  
+        // Color used for button-set controls and other elements
+        'color_select' => '#34495e',
+		 
+        
+        // For the parameter here, use the handle of your stylesheet you use in wp_enqueue
+        'stylesheet_id' => 'customize-styles', 
+		
+        // Only use this if you are bundling the plugin with your theme (see above)
+        'url_path'     => get_template_directory_uri() . '/inc/kirki/',
+
+        'textdomain'   => 'i-design',
+		
+        'i18n'         => $strings,		
+		
+		
+	);
+	
+	
+	return $args;
+}
+add_filter( 'kirki/config', 'idesign_customizer_config' );
+
+
+/**
+ * Create the customizer panels and sections
+ */
+add_action( 'customize_register', 'idesign_add_panels_and_sections' ); 
+function idesign_add_panels_and_sections( $wp_customize ) {
+	
+	/*
+	* Add panels
+	*/
+	
+	$wp_customize->add_panel( 'slider', array(
+		'priority'    => 140,
+		'title'       => __( 'Slider', 'i-design' ),
+		'description' => __( 'Slides details', 'i-design' ),
+	));
+	
+	$wp_customize->add_panel( 'rmenu', array(
+		'priority'    => 140,
+		'title'       => __( 'Responsive Menu', 'i-design' ),
+		'description' => __( 'Responsive Menu Options', 'i-design' ),
+	) );		
+
+    /**
+     * Add Sections
+     */
+    $wp_customize->add_section('basic', array(
+        'title'    => __('Basic Settings', 'i-design'),
+        'description' => '',
+        'priority' => 130,
+    ));
+
+    $wp_customize->add_section('topbar', array(
+        'title'    => __('Topbar Options', 'i-design'),
+        'description' => '',
+        'priority' => 130,
+    ));	
+	
+    $wp_customize->add_section('headeroptions', array(
+        'title'    => __('Header Options', 'i-design'),
+        'description' => '',
+        'priority' => 130,
+    ));		
+
+    $wp_customize->add_section('layout', array(
+        'title'    => __('Layout Options', 'i-design'),
+        'description' => '',
+        'priority' => 130,
+    ));	
+	
+    $wp_customize->add_section('social', array(
+        'title'    => __('Social Links', 'i-design'),
+        'description' => __('Insert full URL of your social link including &#34;http://&#34; replacing #, Empty the fileld if not using the link.', 'i-design'),
+        'priority' => 130,
+    ));		
+	
+    $wp_customize->add_section('blogpage', array(
+        'title'    => __('Default Blog Page', 'i-design'),
+        'description' => '',
+        'priority' => 150,
+    ));	
+	
+	// slider sections
+	
+	$wp_customize->add_section('slidersettings', array(
+        'title'    => __('Slide Settings', 'i-design'),
+        'description' => '',
+        'panel' => 'slider',		
+        'priority' => 140,
+    ));		
+	
+	$wp_customize->add_section('slide1', array(
+        'title'    => __('Slide 1', 'i-design'),
+        'description' => '',
+        'panel' => 'slider',		
+        'priority' => 140,
+    ));	
+	$wp_customize->add_section('slide2', array(
+        'title'    => __('Slide 2', 'i-design'),
+        'description' => '',
+        'panel' => 'slider',		
+        'priority' => 140,
+    ));	
+	$wp_customize->add_section('slide3', array(
+        'title'    => __('Slide 3', 'i-design'),
+        'description' => '',
+        'panel' => 'slider',		
+        'priority' => 140,
+    ));	
+	$wp_customize->add_section('slide4', array(
+        'title'    => __('Slide 4', 'i-design'),
+        'description' => '',
+        'panel' => 'slider',		
+        'priority' => 140,
+    ));	
+	
+    $wp_customize->add_section('typography', array(
+        'title'    => __('Typography', 'i-design'),
+        'description' => '',
+        'priority' => 140,
+    ));		
+	
+	// promo sections
+	
+	$wp_customize->add_section('nxpromo', array(
+        'title'    => __('More About i-design', 'i-design'),
+        'description' => '',
+        'priority' => 170,
+    ));	
+	
+	// Responsive Menu sections
+	
+	$wp_customize->add_section('rmgeneral', array(
+        'title'    => __('General Options', 'i-design'),
+        'panel' => 'rmenu',		
+        'description' => '',
+        'priority' => 170,
+    ));	
+	
+    $wp_customize->add_section('rmsettings', array(
+        'title'    => __('Menu Appearance', 'i-design'),
+        'panel' => 'rmenu',
+        'description' => '',
+        'priority' => 180,
+    ));						
+	
+	// WooCommerce Settings
+    $wp_customize->add_section('woocomm', array(
+        'title'    => __('WooCommerce Theme Options', 'i-design'),
+        'description' => '',
+        'priority' => 191,
+    ));	
+	
+}
+
+
+if ( ! function_exists( 'idesign_custom_setting' ) ) :
+function idesign_custom_setting( $controls ) {
+	
+	/*************************
+	Topbar
+	************************/ 
+	
+	
+	$controls[] = array(
+		'type'        => 'switch',
+		'settings'     => 'wide_topbar',
+		'label'       => __( 'Turn ON Wide Topbar', 'i-design' ),
+		'description' => __( 'Increase topbar height', 'i-design' ),
+		'section'     => 'topbar',
+		'default'     => 0,
+		'priority'    => 1,
+	);
+		
+    $controls[] = array(
+        'type'     => 'text',
+        'settings'  => 'top_phone',
+        'label'    => __( 'Phone Number', 'i-design' ),
+        'section'  => 'topbar',
+        'default'  => '00112345678',
+        'priority' => 1,
+		'description' => __( 'Phone number that appears on top bar.', 'i-design' ),
+    );
+
+    $controls[] = array(
+        'type'     => 'text',
+        'settings'  => 'top_email',
+        'label'    => __( 'Email Address', 'i-design' ),
+        'section'  => 'topbar',
+        'default'  => 'example@example.com',
+        'priority' => 1,
+		'description' => __( 'Email Id that appears on top bar.', 'i-design' ),		
+    );
+	
+	$controls[] = array(
+		'type'        => 'switch',
+		'settings'     => 'clickable_phnem',
+		'label'       => __( 'Clickable Phone And Email', 'i-design' ),
+		'description' => __( 'Phone will open in WhatsApp and email in email client.', 'i-design' ),
+		'section'     => 'topbar',
+		'default'     => 0,
+		'priority'    => 1,
+	);
+	
+	// social links
+	
+    $controls[] = array(
+        'type'     => 'text',
+        'settings'  => 'itrans_social_facebook',
+        'label'    => __( 'Facebook', 'i-design' ),
+        'section'  => 'topbar',
+        'default'  => esc_url('https://www.facebook.com/templatesnext'),
+        'priority' => 1,
+    );	
+	
+    $controls[] = array(
+        'type'     => 'text',
+        'settings'  => 'itrans_social_twitter',
+        'label'    => __( 'Twitter', 'i-design' ),
+        'section'  => 'topbar',
+        'default'  => esc_url('https://www.twitter.com/templatesnext'),
+        'priority' => 1,
+    );
+	
+    $controls[] = array(
+        'type'     => 'text',
+        'settings'  => 'itrans_social_flickr',
+        'label'    => __( 'Flickr', 'i-design' ),
+        'section'  => 'topbar',
+        'default'  => '',
+        'priority' => 1,
+    );	
+	
+    $controls[] = array(
+        'type'     => 'text',
+        'settings'  => 'itrans_social_feed',
+        'label'    => __( 'RSS', 'i-design' ),
+        'section'  => 'topbar',
+        'default'  => '',
+        'priority' => 1,
+    );	
+	
+    $controls[] = array(
+        'type'     => 'text',
+        'settings'  => 'itrans_social_instagram',
+        'label'    => __( 'Instagram', 'i-design' ),
+        'section'  => 'topbar',
+        'default'  => esc_url('https://www.instagram.com/templatesnext'),
+        'priority' => 1,
+    );	
+	
+    $controls[] = array(
+        'type'     => 'text',
+        'settings'  => 'itrans_social_googleplus',
+        'label'    => __( 'Google Plus', 'i-design' ),
+        'section'  => 'topbar',
+        'default'  => '',
+        'priority' => 1,
+    );	
+	
+    $controls[] = array(
+        'type'     => 'text',
+        'settings'  => 'itrans_social_youtube',
+        'label'    => __( 'YouTube', 'i-design' ),
+        'section'  => 'topbar',
+        'default'  => esc_url('https://www.youtube.com/templatesnext'),
+        'priority' => 1,
+    );
+	
+    $controls[] = array(
+        'type'     => 'text',
+        'settings'  => 'itrans_social_pinterest',
+        'label'    => __( 'Pinterest', 'i-design' ),
+        'section'  => 'topbar',
+        'default'  => '',
+        'priority' => 1,
+    );	
+	
+    $controls[] = array(
+        'type'     => 'text',
+        'settings'  => 'itrans_social_linkedin',
+        'label'    => __( 'Linkedin', 'i-design' ),
+        'section'  => 'topbar',
+        'default'  => '',
+        'priority' => 1,
+    );
+	
+	
+	$controls[] = array(
+		'type'        => 'radio-buttonset',
+		'settings'     => 'show_polylang',
+		'label'       => __( 'Show Polylang Language Switch', 'i-design' ),
+		'description' => __( 'Show multilingual plugin polylang language switch on top bar.', 'i-design' ),
+		'section'     => 'topbar',
+		'choices'     => array(
+							'0' => esc_html__( 'Off', 'i-design' ),
+							'1' => esc_html__( 'On with Flags', 'i-design' ),
+							'2' => esc_html__( 'On With Names', 'i-design' ),
+		),		
+		'default'     => '2',
+		'priority'    => 4,
+	);			
+
+	/******************* Logos ***************************/
+	$controls[] = array(
+		'type'        => 'upload',
+		'settings'     => 'logo-trans',
+		'label'       => __( 'Reverse Transparent logo', 'i-design' ),
+		'description' => __( 'Transparent logo for the fullscreen slider or dark background. Width 280px, height 72px max.', 'i-design' ),
+        'section'  => 'title_tagline',
+		'default'     => '',		
+		'priority'    => 8,
+	);
+	
+	
+	/*********************** Colors Options **************************/
+	$controls[] = array(
+		'type'        => 'color',
+		'settings'     => 'primary_color',
+		'label'       => __( 'Primary Color', 'i-design' ),
+		'description' => __( 'Choose your theme color', 'i-design' ),
+		'section'     => 'colors',
+		'default'     => '#0cb4ce',
+		'priority'    => 1,
+	);	
+	
+	/**************** Layout Options ***************/
+	
+	$controls[] = array(
+		'type'        => 'switch',
+		'settings'     => 'pre_loader',
+		'label'       => __( 'Turn ON Page Preloader', 'i-design' ),
+		'description' => __( 'Turn ON/OFF loding animation before page load', 'i-design' ),
+		'section'     => 'layout',
+		'default'     => 0,		
+		'priority'    => 1,
+	);	
+		
+	$controls[] = array(
+		'type'        => 'radio-image',
+		'settings'     => 'blog_layout',
+		'label'       => __( 'Blog Posts Layout', 'i-design' ),
+		'description' => __( '(Choose blog posts layout (one column/two column)', 'i-design' ),
+		'section'     => 'layout',
+		'default'     => '2',
+		'priority'    => 2,
+		'choices'     => array(
+			'1' => get_template_directory_uri() . '/images/onecol.png',
+			'2' => get_template_directory_uri() . '/images/twocol.png',
+		),
+	);
+	
+	$controls[] = array(
+		'type'        => 'switch',
+		'settings'     => 'show_full',
+		'label'       => __( 'Show Full Content', 'i-design' ),
+		'description' => __( 'Show full content on blog pages', 'i-design' ),
+		'section'     => 'layout',
+		'default'     => 0,
+		'priority'    => 3,
+	);		
+	
+	$controls[] = array(
+		'type'        => 'switch',
+		'settings'     => 'wide_layout',
+		'label'       => __( 'Wide layout', 'i-design' ),
+		'description' => __( 'Check to have wide layout', 'i-design' ),
+		'section'     => 'layout',
+		'default'     => 1,
+		'priority'    => 4,
+	);
+	
+	$controls[] = array(
+		'type'        => 'radio-buttonset',
+		'settings'     => 'backto_top',
+		'label'       => __( 'Turn ON Back To Top Button', 'i-design' ),
+		'section'     => 'layout',
+		'choices'     => array(
+				'visible'  	=> esc_html__( 'Enable', 'i-design' ),
+				'hidden' 	=> esc_html__( 'Disable', 'i-design' ),
+			),			
+		'default'     => 'visible',		
+		'priority'    => 5,
+		'output' => array(
+			array(
+				'element'  => '.go-top',
+				'property' => 'visibility',
+			),
+		),		
+	);	
+
+	
+	/************ Header Layout *****************************/
+	
+	$controls[] = array(
+		'type'        => 'radio-image',
+		'settings'     => 'header_style',
+		'label'       => __( 'Header Style', 'i-design' ),
+		'description' => __( 'Select a header style', 'i-design' ),
+		'section'     => 'headeroptions',
+		'default'     => '2',
+		'priority'    => 5,
+		/*	
+		'choices'     => array(
+			'1' => 'Default',
+			'2' => 'Max',
+			'3' => 'NavX',			
+		),
+		*/	
+		'choices'     => array(
+			'1' => get_template_directory_uri() . '/images/navd.png',
+			'2' => get_template_directory_uri() . '/images/navmax.png',
+			'3' => get_template_directory_uri() . '/images/navx.png',			
+		),		
+		
+	);	
+	$controls[] = array(
+		'type'        => 'slider',
+		'settings'     => 'logo_maxheight',
+		'label'       => __( 'Maximum Logo Height', 'i-design' ),
+		'section'     => 'headeroptions',
+		'default'     => 64,
+		'priority'    => 5,
+		'choices'     => array(
+			'min'  => 60,
+			'max'  => 480,
+			'step' => 1,
+		),
+		'output' => array(
+			array(
+				'element'  => '.site-header .home-link img',
+				'property' => 'max-height',
+				'units'	   => 'px',
+			),
+		),		
+	);
+	$controls[] = array(
+		'type'        => 'slider',
+		'settings'     => 'logo_Sticky_maxheight',
+		'label'       => __( 'Sticky Header Maximum Logo Height', 'i-design' ),
+		'section'     => 'headeroptions',
+		'default'     => 48,
+		'priority'    => 5,
+		'choices'     => array(
+			'min'  => 40,
+			'max'  => 240,
+			'step' => 1,
+		),
+		'output' => array(
+			array(
+				'element'  => '.site-header.fixeddiv .home-link img',
+				'property' => 'max-height',
+				'units'	   => 'px',
+			),
+		),		
+	);
+
+	
+	$controls[] = array(
+		'type'        => 'switch',
+		'settings'     => 'show_search',
+		'label'       => __( 'Show Search', 'i-design' ),
+		'description' => __( 'Show search option on main navigation', 'i-design' ),
+		'section'     => 'headeroptions',
+		'default'     => 1,
+		'priority'    => 3,
+	);
+		
+	// Slider
+
+	$controls[] = array(
+		'type'        => 'slider',
+		'settings'     => 'itrans_sliderspeed',
+		'label'       => __( 'Slide Duration', 'i-design' ),
+		'description' => __( 'Slide visibility in second', 'i-design' ),
+		'section'     => 'slidersettings',
+		'default'     => 6,
+		'priority'    => 1,
+		'choices'     => array(
+			'min'  => 1,
+			'max'  => 30,
+			'step' => 1
+		),
+	);
+
+	// Parallax Effect
+	$controls[] = array(
+		'type'        => 'switch',
+		'settings'     => 'itrans_sliderparallax',
+		'label'       => __( 'Parallax Effect', 'i-design' ),
+		'description' => __( 'Turn ON/OFF Parallax Effect', 'i-design' ),
+		'section'     => 'slidersettings',
+		'default'     => 1,			
+		'priority'    => 4,
+	);
+	/*
+	$controls[] = array(
+		'type'        => 'switch',
+		'settings'     => 'slider_overlay',
+		'label'       => __( 'Turn Off Slider Overlay Layer', 'i-design' ),
+		'description' => __( 'Turn Off/on the dotted slider overlay layer', 'i-design' ),
+		'section'     => 'slidersettings',
+		'default'     => 1,
+		'priority'    => 4,
+	);
+	*/
+	$controls[] = array(
+		'type'        => 'radio',
+		'settings'    => 'itrans_style',
+		'label'       => __( 'Slider Style', 'i-design' ),
+		'section'     => 'slidersettings',
+		'default'     => 'nxs-design18',
+		'priority'    => 4,
+		'choices'     => array(
+			'nxs-default'   => esc_attr__( 'Default', 'i-design' ),
+			'nxs-design18' => esc_attr__( 'Design 18', 'i-design' ),
+		),
+	);		
+	
+	$controls[] = array(
+		'type'        => 'switch',
+		'settings'     => 'slider_ubar',
+		'label'       => __( 'Turn On/Off Top Utilitybar', 'i-design' ),
+		'description' => __( 'Turn Off/on the top utilitybar containing email/phone and socoal icon links', 'i-design' ),
+		'section'     => 'slidersettings',
+		'default'     => 1,
+		'priority'    => 5,
+	);
+	
+	$controls[] = array(
+		'type'        => 'switch',
+		'settings'     => 'transparent_header',
+		'label'       => __( 'Turn On/Off Transparent Header', 'i-design' ),
+		'section'     => 'slidersettings',
+		'default'     => 1,
+		'priority'    => 5,
+	);	
+	
+	$controls[] = array(
+		'type'        => 'select',
+		'settings'     => 'slider_transition',
+		'label'       => __( 'Transition Effect', 'i-design' ),
+		'section'     => 'slidersettings',
+		'default'     => 'fadeUp',
+		'choices'     => array(
+			'default' 		=> 'Default',
+			'fade' 			=> 'Fade',
+			'backSlide' 	=> 'Back Slide',
+			'goDown' 		=> 'Go Down',
+			'fadeUp' 		=> 'Fade Up',			
+		),
+		'priority'    => 5,			
+	);		
+	$controls[] = array(
+		//'type'        => 'radio-buttonset',
+		'type'        => 'radio',
+		'settings'    => 'slider_overlay',
+		'label'       => __( 'Background Overlay &frasl; Text Background', 'i-design' ),
+		'section'     => 'slidersettings',
+		'default'     => 'nxs-none',
+		'priority'    => 10,
+		'choices'     => array(
+			'nxs-none'   		=> esc_attr__( 'None', 'i-design' ),
+			'nxs-pattern'   	=> esc_attr__( 'Pattern', 'i-design' ),
+			'nxs-shadow' 		=> esc_attr__( 'Shadow', 'i-design' ),
+			'nxs-vinette'  		=> esc_attr__( 'Vignette', 'i-design' ),
+			'nxs-semitrans'  	=> esc_attr__( 'Semi-trans', 'i-design' ),
+			'nxs-gradient'  	=> esc_attr__( 'Gradient', 'i-design' ),						
+		),
+	);
+	
+	$controls[] = array(
+		'type'        	=> 'color',
+		'settings'     	=> 'nxs_stbg_color',
+		'label'       	=> __( 'Overlay Gradient Color 1', 'i-design' ),
+		'section'     	=> 'slidersettings',
+		'default'     	=> 'rgba(0,0,0,.32)',
+		'priority'    	=> 10,
+		'choices'     	=> array(
+							'alpha' => true,
+						),		
+		'active_callback' => 'idesign_nxs_semitrans',
+		'output' => array(
+			array(
+				'element'  => '.ibanner.nxs-semitrans .nx-slider .da-img:after',
+				'property' => 'background-color',
+			),
+		),		
+	);
+	
+	$controls[] = array(
+		'type'        	=> 'color',
+		'settings'     	=> 'nxs_bg_color_1',
+		'label'       	=> __( 'Overlay Gradient Color 1', 'i-design' ),
+		'section'     	=> 'slidersettings',
+		'default'     	=> 'rgba(231,14,119,.72)',
+		'priority'    	=> 10,
+		'choices'     	=> array(
+							'alpha' => true,
+						),		
+		/*
+		'active_callback' => array(
+								array( 'setting' => 'itrans_overlay', 'operator' => '==', 'value' => 'nxs-gradient' ),
+							),		
+		*/
+		'active_callback' => 'idesign_nxs_gradient',
+	);	
+	
+	$controls[] = array(
+		'type'        	=> 'color',
+		'settings'     	=> 'nxs_bg_color_2',
+		'label'       	=> __( 'Overlay Gradient Color 2', 'i-design' ),
+		'section'     	=> 'slidersettings',
+		'default'     	=> 'rgba(250,162,20,.72)',
+		'priority'    	=> 10,
+		'choices'     	=> array(
+							'alpha' => true,
+						),		
+		/*
+		'active_callback' => array(
+								array( 'setting' => 'itrans_overlay', 'operator' => '==', 'value' => 'nxs-gradient' ),
+							),		
+		*/
+		'active_callback' => 'idesign_nxs_gradient',
+	);	
+	
+	$controls[] = array(
+		'type'        => 'slider',
+		'settings'    => 'nxs_gradient_angle',
+		'label'       => __( 'Gradient Angle', 'i-design' ),
+		'section'     => 'slidersettings',
+		'default'     => 135,
+		'choices'     => array(
+						'min'  => '0',
+						'max'  => '360',
+						'step' => '1',
+					),
+		'active_callback' => 'idesign_nxs_gradient',	
+		'priority'    	=> 10,					
+	);
+	
+	/*++++ end of new slider addition ************/ 
+	
+	$controls[] = array(
+		'type'        => 'slider',
+		'settings'    => 'slider_height',
+		'label'       => __( 'Slider Height (in %)', 'i-design' ),
+		'section'     => 'slidersettings',
+		'default'     => 100,
+		'choices'     => array(
+			'min'  => '0',
+			'max'  => '100',
+			'step' => '1',
+		),
+	);
+	
+	$controls[] = array(
+		'type'        => 'slider',
+		'settings'    => 'slider_reduct',
+		'label'       => __( 'Slider Height Reduction in PX', 'i-design' ),
+		'section'     => 'slidersettings',
+		'default'     => 36,
+		'choices'     => array(
+			'min'  => '0',
+			'max'  => '400',
+			'step' => '1',
+		),
+	);	
+	
+	$controls[] = array(
+		'type'        => 'slider',
+		'settings'    => 'title_font_size',
+		'label'       => __( 'Slide Title Font Size in px', 'i-design' ),
+		'section'     => 'slidersettings',
+		'default'     => 56,
+		'choices'     => array(
+			'min'  => '12',
+			'max'  => '100',
+			'step' => '1',
+		),
+	);
+	$controls[] = array(
+		'type'        => 'slider',
+		'settings'    => 'title_font_weight',
+		'label'       => __( 'Slide Title Font Weight', 'i-design' ),
+		'section'     => 'slidersettings',
+		'default'     => 700,
+		'choices'     => array(
+			'min'  => '100',
+			'max'  => '1000',
+			'step' => '100',
+		),
+		'description' => __( '100 is thinnest and 1000 is thickest', 'i-design' ),		
+	);
+	
+	
+	// Slide1
+    $controls[] = array(
+        'type'     => 'text',
+        'settings'  => 'itrans_slide1_title',
+        'label'    => __( 'Slide1 Title', 'i-design' ),
+        'section'  => 'slide1',
+        'default'  => __( '<span style="color: #0cb4ce;">DRAG & DROP</span> PAGE BUILDER', 'i-design' ),
+		'description' => __( 'Accepts span tag with style or class attribute.', 'i-design' ),
+        'priority' => 1,
+    );
+	$controls[] = array(
+		'type'        => 'textarea',
+		'settings'     => 'itrans_slide1_desc',
+		'label'       => __( 'Slide1 Description', 'i-design' ),
+		'section'     => 'slide1',
+		'default'     => __( 'WooCommerce, Elementor, SIteOrigin Page Builder Support And Free Layouts', 'i-design' ),
+		'priority'    => 10,
+	);
+    $controls[] = array(
+        'type'     => 'text',
+        'settings'  => 'itrans_slide1_linktext',
+        'label'    => __( 'Slide1 Link text', 'i-design' ),
+        'section'  => 'slide1',
+        'default'  => __( 'Know More', 'i-design' ),
+        'priority' => 1,
+    );
+    $controls[] = array(
+        'type'     => 'text',
+        'settings'  => 'itrans_slide1_linkurl',
+        'label'    => __( 'Slide1 Link URL', 'i-design' ),
+        'section'  => 'slide1',
+        'default'  => esc_url( 'http://www.templatesnext.org/i-design/', 'i-design' ),
+        'priority' => 1,
+    );
+	$controls[] = array(
+		'type'        => 'upload',
+		'settings'     => 'itrans_slide1_image',
+		'label'       => __( 'Slide1 Image', 'i-design' ),
+        'section'  	  => 'slide1',
+		'default'     => get_template_directory_uri() . '/images/slide1.jpg',
+		'priority'    => 1,
+	);							
+	
+	
+	// Slide2
+    $controls[] = array(
+        'type'     => 'text',
+        'settings'  => 'itrans_slide2_title',
+        'label'    => __( 'Slide2 Title', 'i-design' ),
+        'section'  => 'slide2',
+        'default'  => __( 'ONE CLICK DEMO SETUP', 'i-design' ),
+		'description' => __( 'Accepts span tag with style or class attribute.', 'i-design' ),		
+        'priority' => 1,
+    );
+	$controls[] = array(
+		'type'        => 'textarea',
+		'settings'     => 'itrans_slide2_desc',
+		'label'       => __( 'Slide2 Description', 'i-design' ),
+		'section'     => 'slide2',
+		'default'     => __( 'I-Design comes with "One Click Demo Setup" to help you kickstart your website from one of our demo website, instead of starting from scratch.', 'i-design'  ),
+		'priority'    => 10,
+	);
+    $controls[] = array(
+        'type'     => 'text',
+        'settings'  => 'itrans_slide2_linktext',
+        'label'    => __( 'Slide2 Link text', 'i-design' ),
+        'section'  => 'slide2',
+        'default'  => __( 'Know More', 'i-design'  ),
+        'priority' => 1,
+    );
+    $controls[] = array(
+        'type'     => 'text',
+        'settings'  => 'itrans_slide2_linkurl',
+        'label'    => __( 'Slide2 Link URL', 'i-design' ),
+        'section'  => 'slide2',
+        'default'  => esc_url( 'http://www.wordpress.org/' ),
+        'priority' => 1,
+    );
+	$controls[] = array(
+		'type'        => 'upload',
+		'settings'     => 'itrans_slide2_image',
+		'label'       => __( 'Slide2 Image', 'i-design' ),
+        'section'  	  => 'slide2',
+		'default'     => get_template_directory_uri() . '/images/slide2.jpg',
+		'priority'    => 1,
+	);							
+		
+		
+	// Slide3
+    $controls[] = array(
+        'type'     => 'text',
+        'settings'  => 'itrans_slide3_title',
+        'label'    => __( 'Slide3 Title', 'i-design' ),
+        'section'  => 'slide3',
+        'default'  => __( 'TEMPLATESNEXT TOOLKIT', 'i-design' ),
+		'description' => __( 'Accepts span tag with style or class attribute.', 'i-design' ),		
+        'priority' => 1,
+    );
+	$controls[] = array(
+		'type'        => 'textarea',
+		'settings'     => 'itrans_slide3_desc',
+		'label'       => __( 'Slide3 Description', 'i-design' ),
+		'section'     => 'slide3',
+		'default'     => __( 'TemplatesNext Toolkit is a plugin to help you create beautiful pages with sliders, services, portfolios etc.', 'i-design' ),
+		'priority'    => 10,
+	);
+    $controls[] = array(
+        'type'     => 'text',
+        'settings'  => 'itrans_slide3_linktext',
+        'label'    => __( 'Slide3 Link text', 'i-design' ),
+        'section'  => 'slide3',
+        'default'  => __( 'Know More', 'i-design' ),
+        'priority' => 1,
+    );
+    $controls[] = array(
+        'type'     => 'text',
+        'settings'  => 'itrans_slide3_linkurl',
+        'label'    => __( 'Slide3 Link URL', 'i-design' ),
+        'section'  => 'slide3',
+        'default'  => esc_url( 'http://www.templatesnext.org/icreate/?page_id=541' ),
+        'priority' => 1,
+    );
+	$controls[] = array(
+		'type'        => 'upload',
+		'settings'     => 'itrans_slide3_image',
+		'label'       => __( 'Slide3 Image', 'i-design' ),
+        'section'  	  => 'slide3',
+		'default'     => get_template_directory_uri() . '/images/slide3.jpg',
+		'priority'    => 1,
+	);							
+	
+	
+	// Slide4
+    $controls[] = array(
+        'type'     => 'text',
+        'settings'  => 'itrans_slide4_title',
+        'label'    => __( 'Slide4 Title', 'i-design' ),
+        'section'  => 'slide4',
+        'default'  => __( 'EASY TO CUSTOMIZE', 'i-design'  ),
+		'description' => __( 'Accepts span tag with style or class attribute.', 'i-design' ),		
+        'priority' => 1,
+    );
+	$controls[] = array(
+		'type'        => 'textarea',
+		'settings'     => 'itrans_slide4_desc',
+		'label'       => __( 'Slide4 Description', 'i-design' ),
+		'section'     => 'slide4',
+		'default'     => __( 'I-Design is probably the easiest theme to customize with shortcuts to customizer controls from live preview screen.', 'i-design'  ),
+		'priority'    => 10,
+	);
+    $controls[] = array(
+        'type'     => 'text',
+        'settings'  => 'itrans_slide4_linktext',
+        'label'    => __( 'Slide4 Link text', 'i-design' ),
+        'section'  => 'slide4',
+        'default'  => __( 'Know More', 'i-design' ),
+        'priority' => 1,
+    );
+    $controls[] = array(
+        'type'     => 'text',
+        'settings'  => 'itrans_slide4_linkurl',
+        'label'    => __( 'Slide4 Link URL', 'i-design' ),
+        'section'  => 'slide4',
+        'default'  => esc_url( 'http://www.templatesnext.org/ispirit/landing/' ),
+        'priority' => 1,
+    );
+	$controls[] = array(
+		'type'        => 'upload',
+		'settings'     => 'itrans_slide4_image',
+		'label'       => __( 'Slide4 Image', 'i-design' ),
+        'section'  	  => 'slide4',
+		'default'     => get_template_directory_uri() . '/images/slide4.jpg',
+		'priority'    => 1,
+	);
+	
+	// Blog page setting
+	
+	$controls[] = array(
+		'type'        => 'switch',
+		'settings'     => 'slider_stat',
+		'label'       => __( 'Turn ON/OFF i-design Slider', 'i-design' ),
+		'description' => __( 'Turn Off or On to hide/show default i-design slider', 'i-design' ),
+		'section'     => 'blogpage',
+		'default'     => 1,
+		'priority'    => 0,
+	);	
+	
+    $controls[] = array(
+        'type'     => 'text',
+        'settings'  => 'blogslide_scode',
+        'label'    => __( 'Other Slider Shortcode', 'i-design' ),
+        'section'  => 'blogpage',
+        'default'  => '',
+		'description' => __( 'Enter a 3rd party slider shortcode, ex. meta slider, smart slider 2, wow slider, etc.', 'i-design' ),
+        'priority' => 2,
+    );
+	
+    $controls[] = array(
+        'type'     => 'text',
+        'settings'  => 'banner_text',
+        'label'    => __( 'Banner Text', 'i-design' ),
+        'section'  => 'blogpage',
+        'default'  => get_bloginfo( 'description' ),
+        'priority' => 3,
+		'description' => __( 'if you are using a logo and want your site title or slogan to appear on the header banner', 'i-design' ),		
+    );
+	
+	$controls[] = array(
+		'type'        => 'slider',
+		'settings'    => 'blog_header_height',
+		'label'       => __( 'Image/Video Header Height (in %)', 'i-design' ),
+		'section'     => 'header_image',
+		'default'     => 100,
+        'priority' 	  => 20,		
+		'choices'     => array(
+			'min'  => '0',
+			'max'  => '100',
+			'step' => '1',
+		),
+	);		
+	
+
+	//rmgeneral
+	//rmsettings
+
+	$controls[] = array(
+		'label' => __('Enable Mobile Navigation', 'i-design'),
+		'description' => __('Check if you want to activate mobile navigation.', 'i-design'),
+		'settings' => 'enabled',
+		'default' => '1',
+		'type' => 'checkbox',
+        'section'  => 'rmgeneral',	
+	);
+
+	$controls[] = array(
+		'label' => __('Elements to hide in mobile:', 'i-design'),
+		'description' => __('Enter the css class/ids for different elements you want to hide on mobile separeted by a comma(,). Example: .nav,#main-menu ', 'i-design'),
+		'settings' => 'hide',
+		'default' => '',
+		'type' => 'text',
+        'section'  => 'rmgeneral',		
+	);
+	
+	$controls[] = array(
+		'label' => __('Enable Swipe', 'i-design'),
+		'description' => __('Enable swipe gesture to open/close menus, Only applicable for left/right menu.', 'i-design'),
+		'settings' => 'swipe',
+		'default' => 'yes',
+		'choices' => array('yes' => __('Yes', 'i-design'),'no' => __('No', 'i-design')),
+		'type' => 'radio',
+        'section'  => 'rmgeneral',		
+	);
+	
+	$controls[] = array(
+		'label' => __('Search Field Position', 'i-design'),
+		'description' => __('Select the position of search box or simply hide the search box if you donot need it.', 'i-design'),
+		'settings' => 'search_box',
+		'default' => 'below_menu',
+		'choices' => array('above_menu' => __('Above Menu', 'i-design'), 'below_menu' => __('Below Menu', 'i-design'), 'hide'=> __('Hide search box', 'i-design') ),
+		'type' => 'select',
+        'section'  => 'rmgeneral',		
+	);
+		
+	$controls[] = array(
+		'label' => __('Allow zoom on mobile devices', 'i-design'),
+		'settings' => 'zooming',
+		'default' => 'yes',
+		'choices' => array('yes' => __('Yes', 'i-design'),'no' => __('No', 'i-design')),
+		'type' => 'radio',
+        'section'  => 'rmgeneral',	
+	);
+		
+
+	// Responsive Menu Settings
+	$controls[] = array(
+		'label' => __('Menu Symbol Position', 'i-design'),
+		'description' => __('Select menu icon position which will be displayed on the menu bar.', 'i-design'),
+		'settings' => 'menu_symbol_pos',
+		'default' => 'left',
+		'choices' => array('left' => __('Left', 'i-design'),'right' => __('Right', 'i-design')),
+		'type' => 'select',
+        'section'  => 'rmsettings',	
+	);
+
+	$controls[] = array(
+		'label' => __('Menu Text', 'i-design'),
+		'description' => __('Entet the text you would like to display on the menu bar.', 'i-design'),
+		'settings' => 'bar_title',
+		'default' => __('MENU', 'i-design'),
+		'type' => 'text',
+        'section'  => 'rmsettings',			
+	);
+
+	$controls[] = array(
+		'label' => __('Menu Open Direction', 'i-design'),
+		'description' => __('Select the direction from where menu will open.', 'i-design'),
+		'settings' => 'position',
+		'default' => 'left',
+		'choices' => array('left' => 'Left','right' => 'Right', 'top' => 'Top' ),
+		'type' => 'select',
+        'section'  => 'rmsettings',			
+	);
+
+	$controls[] = array(
+		'label' => __('Display menu from width (in px)', 'i-design'),
+		'description' => __(' Enter the width (in px) below which the responsive menu will be visible on screen', 'i-design'),
+		'settings' => 'from_width',
+		'default' => 1069,
+		'type' => 'text',
+        'section'  => 'rmsettings',			
+	);
+
+	$controls[] = array(
+		'label' => __('Menu Width', 'i-design'),
+		'description' => __('Enter menu width in (%) only applicable for left and right menu.', 'i-design'),
+		'settings' => 'how_wide',
+		'default' => '80',
+		'type' => 'text',
+        'section'  => 'rmsettings',			
+	);
+	
+	$controls[] = array(
+		'label' => __('Menu bar background color', 'i-design'),
+		'description' => '',
+		'settings' => 'bar_bgd',
+		'default' => '#0cb4ce',
+		'type' => 'color',
+        'section'  => 'rmsettings',			
+	);
+	
+	$controls[] = array(
+		'label' => __('Menu bar text color', 'i-design'),
+		'settings' => 'bar_color',
+		'default' => '#F2F2F2',
+		'type' => 'color',
+        'section'  => 'rmsettings',			
+	);
+	
+	$controls[] = array(
+		'label' => __('Menu background color', 'i-design'),
+		'settings' => 'menu_bgd',
+		'default' => '#2E2E2E',
+		'type' => 'color',
+        'section'  => 'rmsettings',			
+	);
+	
+	$controls[] = array(
+		'label' => __('Menu text color', 'i-design'),
+		'settings' => 'menu_color',
+		'default' => '#CFCFCF',
+		'type' => 'color',
+        'section'  => 'rmsettings',			
+	);
+	
+	$controls[] = array(
+		'label' => __('Menu mouse over text color', 'i-design'),
+		'settings' => 'menu_color_hover',
+		'default' => '#606060',
+		'type' => 'color',
+        'section'  => 'rmsettings',			
+	);
+	
+	$controls[] = array(
+		'label' => __('Menu icon color', 'i-design'),
+		'settings' => 'menu_icon_color',
+		'default' => '#FFFFFF',
+		'type' => 'color',
+        'section'  => 'rmsettings',			
+	);
+	
+	$controls[] = array(
+		'label' => __('Menu borders(top & left) color', 'i-design'),
+		'settings' => 'menu_border_top',
+		'default' => '#0D0D0D',
+		'type' => 'color',
+        'section'  => 'rmsettings',		
+	);
+	
+	$controls[] = array(
+		'label' => __('Menu borders(bottom) color', 'i-design'),
+		'settings' => 'menu_border_bottom',
+		'default' => '#131212',
+		'type' => 'color',
+        'section'  => 'rmsettings',		
+	);
+	
+	$controls[] = array(
+		'label' => __('Enable borders for menu items', 'i-design'),
+		'settings' => 'menu_border_bottom_show',
+		'default' => 'yes',
+		'choices' =>  array('yes' => __('Yes', 'i-design'),'no' => __('No', 'i-design')),
+		'type' => 'radio',
+        'section'  => 'rmsettings',			
+	);
+	
+	// i-design typography
+	$controls[] = array(
+		'type'        => 'typography',
+		'settings'    => 'body_font',
+		'label'       => __( 'Body Font Style', 'i-design' ),
+		'description' => __( 'Content font style (Variant and Subsets are not used). Default font "Roboto" Default font "Open Sans", size "14"', 'i-design' ),
+		'section'     => 'typography',
+		'default'     => array(
+			//'font-style'     => array( 'normal', 'bold', 'italic' ),
+			'font-family'    => 'Open Sans',
+			'font-size'      => '14',
+			'color'          => '#575757',			
+			'subsets'        => 'none',
+		),
+		'priority'    => 1,
+		'choices' => array(
+			'fonts' => array(
+				'google'   => array( 'popularity', 50 ),
+				'standard' => array(
+					'Georgia,Times,"Times New Roman",serif',
+					'Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif'
+				),
+			),
+		),	
+	);
+	
+	$controls[] = array(
+		'type'        => 'typography',
+		'settings'    => 'title_font',
+		'label'       => __( 'Heading Font Style', 'i-design' ),
+		'description' => __( 'Title font style (Variant and Subsets are not used). Default font "Roboto"', 'i-design' ),
+		'section'     => 'typography',
+		'default'     => array(
+			//'font-style'     => array( 'normal', 'bold', 'italic' ),
+			'font-family'    => 'Roboto',
+			'subsets'        => 'none',
+		),
+		'priority'    => 1,
+		'choices' => array(
+			'fonts' => array(
+				'google'   => array( 'popularity', 50 ),
+				'standard' => array(
+					'Georgia,Times,"Times New Roman",serif',
+					'Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif'
+				),
+			),
+		),	
+	);		
+	
+	if ( in_array( 'woocommerce/woocommerce.php', apply_filters( 'active_plugins', get_option( 'active_plugins' ) ) ) )
+	{ 
+	/* WooCommerce Settings */
+		$controls[] = array(
+			'type'        => 'switch',
+			'settings'     => 'show_login',
+			'label'       => __( 'Hide/Show Topnav Login', 'i-design' ),
+			'description' => __( 'Turn ON or OFF user login menu item on top nav', 'i-design' ),
+			'section'     => 'woocomm',
+			'default'  	  => 0,		
+			'priority'    => 1,
+		);
+		
+		$controls[] = array(
+			'type'        => 'switch',
+			'settings'     => 'show_cart',
+			'label'       => __( 'Show/Hide Topnav Cart', 'i-design' ),
+			'description' => __( 'Turn ON or OFF cart from top nav', 'i-design' ),
+			'section'     => 'woocomm',
+			'default'     => 1,		
+			'priority'    => 1,
+		);
+		
+		$controls[] = array(
+			'type'        => 'switch',
+			'settings'     => 'product_search',
+			'label'       => __( 'Turn On/OFF Product Search', 'i-design' ),
+			'description' => __( 'Turn ON/OFF product only search.', 'i-design' ),
+			'section'     => 'woocomm',
+			'default'  	  => 0,		
+			'priority'    => 1,
+		);
+	}
+
+    return $controls;
+}
+endif;
+add_filter( 'kirki/controls', 'idesign_custom_setting' );
+
+function idesign_nxs_gradient() {
+	//'setting' => 'itrans_overlay', 'operator' => '==', 'value' => 'nxs-gradient'
+	if ( get_theme_mod('slider_overlay') == 'nxs-gradient' ) {
+		return true;
+	} else {
+		return false;
+	}
+}
+
+function idesign_nxs_semitrans() {
+	//'setting' => 'itrans_overlay', 'operator' => '==', 'value' => 'nxs-gradient'
+	if ( get_theme_mod('slider_overlay') == 'nxs-semitrans' ) {
+		return true;
+	} else {
+		return false;
+	}
+}
+
+
+
+
+
